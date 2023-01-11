@@ -11,5 +11,6 @@ class Trapped_Mouse(Select_Position):
 
 
 if __name__ == "__main__":
-    print(Select_Position())
+    
+    Select_Position().Move('x')
     
