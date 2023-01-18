@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block styles%}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        
+    {%endblock%}
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <article>
+                <ul>
+                    <li>
+                        <img src="{% static 'img/monster/Rat.gif' %}">
+                    </li>
+                    <li>
+                        <h1>LABIRINTO DO RATO!</h1>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/monster/Rat.gif' %}">
+                    </li>
+                </ul>
+        </article>
+
+    </header>
+
+    <main>
+        {%block info%}
+
+        {%endblock%}
+    </main>
+
+    <footer>LABIRINTO DO RATO!</footer>
+
+</body>
+</html>
