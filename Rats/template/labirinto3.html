@@ -10,16 +10,16 @@
             
     </div>
     <div class="titulo_info">   
-        <h4>SELECIONE A POSIÇÃO DO RATO</h4>
+        <h4>SELECIONE A POSIÇÃO DO Queijo</h4>
 
         
     </div>
     <div class="titulo_info">   
-        <img class='img'src="{% static 'img/monster/Rat.gif' %}">
+        <img class='img'src="{% static 'img/item/Rat_Cheese.gif' %}">
         
     </div>
     <div class="select_lab">
-        <form action="{% url 'labirinto2' %}" method="post" autocomplete="off">{%csrf_token%}
+        <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
             <div class="select_1">
                 {%if Matriz.0.0 == True%}
                     <img class='box2'src="{% static 'img/parede/1.bmp' %}">

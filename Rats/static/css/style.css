@@ -26,6 +26,16 @@ header article{
     margin: 0%;
     padding: 0%;
 }
+.box1{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+}
+.box2{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+}
 header ul{
     display: flex;
     justify-content: space-between;

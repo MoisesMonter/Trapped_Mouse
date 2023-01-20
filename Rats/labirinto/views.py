@@ -6,8 +6,12 @@ from .forms import Matriz2
 
 class create_lab:
     labirinto_criado=[]
+    labirinto_Rato=[]
+    labirinto_completo=[]
     def __init__(self,info):
         global labirinto_criado
+        global labirinto_Rato
+        global labirinto_completo
 
 def Home(request):
     return HttpResponse(f"SIM")
@@ -33,11 +37,38 @@ def labirinto(request):
 
 def labirinto2(request):
     info= create_lab.labirinto_criado
-    x = Matriz2
+    x = Matriz2(request.POST)
+
     if request.method == 'GET':
         return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
     if request.method == 'POST':
+
+        if x.is_valid:
+            x = request.POST.get('object_lab').split(' ')
+            aux = [[x for x in l]for l in create_lab.labirinto_criado]
+            aux[int(x[0])][int(x[1])]='Rato'
+            create_lab.labirinto_Rato= aux
+            create_lab.labirinto_criado[int(x[0])][int(x[1])]= True
+            print( create_lab.labirinto_Rato)
+            return redirect('labirinto3')
         return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
 
+def labirinto3(request):
+    info= create_lab.labirinto_criado
+    info= create_lab.labirinto_Rato
+    x = Matriz2(request.POST)
 
+    if request.method == 'GET':
+        return render(request,"labirinto3.html",{'Matriz':info,'Matriz2':x})
+    if request.method == 'POST':
+
+        if x.is_valid:
+            x = request.POST.get('object_lab').split(' ')
+            aux = [[x for x in l]for l in create_lab.labirinto_criado]
+            aux[int(x[0])][int(x[1])]='Rato'
+            create_lab.labirinto_Rato= aux
+            create_lab.labirinto_criado[int(x[0])][int(x[1])]= True
+            print(x)
+            return redirect('labirinto3')
+        return render(request,"labirinto3.html",{'Matriz':info,'Matriz2':x})
 
