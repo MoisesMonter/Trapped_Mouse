@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,AnonymousUser
 from . import views
+from .forms import Matriz2 
 # Create your views here.
 
 class create_lab:
@@ -32,10 +33,11 @@ def labirinto(request):
 
 def labirinto2(request):
     info= create_lab.labirinto_criado
+    x = Matriz2
     if request.method == 'GET':
-        return render(request,"labirinto2.html",{'Matriz':info})
+        return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
     if request.method == 'POST':
-        return render(request,"labirinto2.html",{'Matriz':info})
+        return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
 
 
 
