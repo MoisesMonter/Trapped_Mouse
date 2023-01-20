@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {%block styles%}
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-        
+    <link href="{% static 'css/labirinto.css' %}" rel="stylesheet">
     {%endblock%}
     <title>Document</title>
 </head>
@@ -19,7 +19,7 @@
                         <img src="{% static 'img/monster/Rat.gif' %}">
                     </li>
                     <li>
-                        <h1>LABIRINTO DO RATO!</h1>
+                        <h1>RATO NO LABIRINTO</h1>
                     </li>
                     <li>
                         <img src="{% static 'img/monster/Rat.gif' %}">
@@ -35,7 +35,21 @@
         {%endblock%}
     </main>
 
-    <footer>LABIRINTO DO RATO!</footer>
+    <footer>
+        <article>
+            <ul>
+                <li>
+                    <img src="{% static 'img/monster/Rat.gif' %}">
+                </li>
+                <li>
+                    <h1>RATO NO LABIRINTO</h1>
+                </li>
+                <li>
+                    <img src="{% static 'img/monster/Rat.gif' %}">
+                </li>
+            </ul>
+    </article>
+    </footer>
 
 </body>
 </html>

@@ -10,18 +10,43 @@
             
     </div>
     <div class="titulo_info">   
-        <h4>SELECIONE AS PAREDES</h4>
+        <h4>SELECIONE A POSIÇÃO DO RATO</h4>
         
     </div>
     <div class="select_lab">
-        <form action="{% url 'labirinto' %}" method="post" autocomplete="off">{%csrf_token%}
+        <form action="{% url 'labirinto2' %}" method="post" autocomplete="off">{%csrf_token%}
             <div class="select_1">
-                <input type="checkbox" id="l0c0" name="l0c0">
-                <input type="checkbox" id="l0c1" name="l0c1">
-                <input type="checkbox" id="l0c2" name="l0c2">
-                <input type="checkbox" id="l0c3" name="l0c3">
-                <input type="checkbox" id="l0c4" name="l0c4">
-                <input type="checkbox" id="l0c5" name="l0c5">
+                
+                {%if Matriz.0.0 == True%}
+                    <input type="checkbox" id="l0c0" name="l0c0"  value='l0c0' disabled>
+                {%else%}
+                    <input type="radio" id="l0c0" name="l0c0" value='l0c0'>
+                {%endif%}
+                {%if Matriz.0.1 == True%}
+                    <input type="checkbox" id="l0c1" name="l0c1" value='l0c1' disabled>
+                {%else%}
+                    <input type="radio" id="l0c1" name="l0c1" value='l0c1'>
+                {%endif%}
+                {%if Matriz.0.2 == True%}
+                    <input type="checkbox" id="l0c2" name="l0c2" value='l0c2' disabled>
+                {%else%}
+                    <input type="radio" id="l0c2" name="l0c2" value='l0c2'>
+                {%endif%}
+                {%if Matriz.0.3 == True%}
+                    <input type="checkbox" id="l0c3" name="l0c3"  value='l0c3'disabled>
+                {%else%}
+                    <input type="radio" id="l0c3" name="l0c3" value='l0c3'>
+                {%endif%}
+                {%if Matriz.0.4 == True%}
+                    <input type="checkbox" id="l0c4" name="l0c4" value='l0c4'disabled>
+                {%else%}
+                    <input type="radio" id="l0c4" name="l0c4" value='l0c4'>
+                {%endif%}
+                {%if Matriz.0.5 == True%}
+                    <input type="checkbox" id="l0c5" name="l0c5" value='l0c5' disabled>
+                {%else%}
+                    <input type="radio" id="l0c5" name="l0c5" value='l0c5'>
+                {%endif%}
             </div>
             <div class="select_1">
                 <input type="checkbox" id="l1c0" name="l1c0">
