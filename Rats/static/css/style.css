@@ -1,5 +1,5 @@
 *{
-    background-color: rgb(27, 27, 27);
+    background-color: black;
     color: rgb(255, 255, 255);
     margin: 0%;
     word-break: break-all;
@@ -77,10 +77,12 @@ header ul li img {
 footer{
     display:flex;
     flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     margin: 0%;
     padding: 0%;
-    background-color: black;
+    padding-bottom: auto;
+
 }
 footer article{
     display: flex;
@@ -129,11 +131,18 @@ footer ul li img {
 }
 
 main{
+    background-color: rgb(27, 27, 27);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin: 5%;
+
+    padding:5%;
+}
+.choice_submit{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

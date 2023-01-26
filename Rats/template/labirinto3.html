@@ -383,14 +383,25 @@
                 {% elif Matriz.5.5 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.5}}
+                {{Matriz2.object_lab.35}}
                 {%endif%}
             </div>
-            <div class="input">
-                <input type="submit"  value="Acept"></label><br></li>
+            <div class="choise_submit">
+                <div class="input">
+                    <input type="submit"  value="Acept"></label><br></li>
+                </div>   
+
+            </form>
+            
+                <div class="input">
+                    <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
+                    <input type="submit" name="back" value="Back"></label><br></li>
+                    </form>
+                </div>    
+        
             </div>
             
-        </form>
+
     </div>
 </div>
 

@@ -1,0 +1,648 @@
+{%extends 'corpo.html'%}
+{% load static %}
+
+
+{%block info %}
+
+<div id="labirinto_1">
+    <div class="titulo_info">
+            <h2>SEU LABIRINTO ESTÁ PRONTO</h2>
+            
+    </div>
+    <div class="titulo_info">   
+        <h4>JOGAR</h4>
+
+        
+    </div>
+
+    <div class="select_lab">
+        <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
+            <div class="select_1">
+                {%if Matriz.0.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.0 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.0 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.0.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.1 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.1 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.0.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.2 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.2 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.0.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.3 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.3 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.0.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.4 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.4 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.0.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.0.5 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.0.5 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+            </div>
+            <div class="select_1">
+                {%if Matriz.1.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.0 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.0 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.1.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.1 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.1 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.1.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.2 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.2 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.1.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.3 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.3 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.1.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.4 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.4 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.1.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.1.5 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.1.5 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+            </div>
+            <div class="select_1">
+                {%if Matriz.2.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.0 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.0 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.2.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.1 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.1 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.2.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.2 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.2 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.2.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.3 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.3 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.2.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.4 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.4 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.2.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.2.5 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.2.5 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+            </div>
+            <div class="select_1">
+                {%if Matriz.3.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.0 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.0 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.3.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.1 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.1 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.3.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.2 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.2 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.3.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.3 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.3 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.3.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.4 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.4 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.3.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.3.5 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.3.5 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+            </div>
+            <div class="select_1">
+                {%if Matriz.4.0 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.0 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.0 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+
+            {%if Matriz.4.1 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.1 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.1 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+
+            {%if Matriz.4.2 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.2 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.2 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+
+            {%if Matriz.4.3 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.3 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.3 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+
+            {%if Matriz.4.4 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.4 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.4 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+
+            {%if Matriz.4.5 == True%}
+                <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+            {% elif Matriz.4.5 == 'Rato'%}
+                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+            {% elif Matriz.4.5 == 'Queijo'%}
+            <div class="imagem_sobreposta">
+                     classtyle='position:absolute;' s='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                <img           
+            {%else%}
+            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+            {%endif%}
+            </div>
+            <div class="select_1">
+                {%if Matriz.5.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.0 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.0 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.5.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.1 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.1 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.5.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.2 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.2 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.5.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.3 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.3 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.5.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.4 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.4 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+
+                {%if Matriz.5.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.5.5 == 'Rato'%}
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                {% elif Matriz.5.5 == 'Queijo'%}
+                <div class="imagem_sobreposta">
+                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>  
+                                   
+                {%else%}
+                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                {%endif%}
+            </div>
+            <div class="choise_submit">
+                <div class="input">
+                    <input type="submit"  value="Acept"></label><br></li>
+                </div>   
+
+            </form>
+            
+                <div class="input">
+                    <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
+                    <input type="submit" name="back" value="Back"></label><br></li>
+                    </form>
+                </div>    
+        
+            </div>
+            
+
+    </div>
+</div>
+
+
+
+
+{%endblock%}

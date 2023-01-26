@@ -8,10 +8,14 @@ class create_lab:
     labirinto_criado=[]
     labirinto_Rato=[]
     labirinto_completo=[]
+    Rato_Position= []
+    Queijo_Position=[]
     def __init__(self,info):
         global labirinto_criado
         global labirinto_Rato
         global labirinto_completo
+        global Rato_Position
+        global Queijo_Position
 
 def Home(request):
     return HttpResponse(f"SIM")
@@ -38,19 +42,22 @@ def labirinto(request):
 def labirinto2(request):
     info= create_lab.labirinto_criado
     x = Matriz2(request.POST)
-
+    print(create_lab.labirinto_criado)
     if request.method == 'GET':
         return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
     if request.method == 'POST':
+        if request.POST.get('back') == None:
+            if x.is_valid:
+                create_lab.Rato_Position = request.POST.get('object_lab').split(' ')
+                print(create_lab.Rato_Position)
+                create_lab.labirinto_Rato = [[x for x in l]for l in create_lab.labirinto_criado]
+                create_lab.labirinto_Rato[int(create_lab.Rato_Position[0])][int(create_lab.Rato_Position[1])] = 'Rato'
+                print(create_lab.Rato_Position)
+                print( create_lab.labirinto_Rato)
+                return redirect('labirinto3')
+        else:
+            return redirect('labirinto')
 
-        if x.is_valid:
-            x = request.POST.get('object_lab').split(' ')
-            aux = [[x for x in l]for l in create_lab.labirinto_criado]
-            aux[int(x[0])][int(x[1])]='Rato'
-            create_lab.labirinto_Rato= aux
-            create_lab.labirinto_criado[int(x[0])][int(x[1])]= True
-            print( create_lab.labirinto_Rato)
-            return redirect('labirinto3')
         return render(request,"labirinto2.html",{'Matriz':info,'Matriz2':x})
 
 def labirinto3(request):
@@ -61,14 +68,17 @@ def labirinto3(request):
     if request.method == 'GET':
         return render(request,"labirinto3.html",{'Matriz':info,'Matriz2':x})
     if request.method == 'POST':
-
-        if x.is_valid:
-            x = request.POST.get('object_lab').split(' ')
-            aux = [[x for x in l]for l in create_lab.labirinto_criado]
-            aux[int(x[0])][int(x[1])]='Rato'
-            create_lab.labirinto_Rato= aux
-            create_lab.labirinto_criado[int(x[0])][int(x[1])]= True
-            print(x)
-            return redirect('labirinto3')
+        if request.POST.get('back') == None:
+            if x.is_valid:
+                create_lab.Queijo_Position = request.POST.get('object_lab').split(' ')
+                print(create_lab.Queijo_Position)
+                create_lab.labirinto_completo = [[x for x in l]for l in create_lab.labirinto_Rato]
+                create_lab.labirinto_completo[int(create_lab.Queijo_Position[0])][int(create_lab.Queijo_Position[1])]='Queijo'
+                print(create_lab.Queijo_Position)
+                print(create_lab.labirinto_completo)
+                x = Matriz2(request.POST)
+                return render(request,"labirinto4.html",{'Matriz':create_lab.labirinto_completo,'Matriz2':x})
+        else:
+            return redirect('labirinto2')
         return render(request,"labirinto3.html",{'Matriz':info,'Matriz2':x})
 
