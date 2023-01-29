@@ -1,4 +1,5 @@
 from random import randint
+import time
 pilha =[]
 
 def Info():
@@ -8,12 +9,13 @@ def Info():
 
 class Local_Actions:
     def __init__(self,R,Q,L):
+        info = ['top','bootom','left','right']
+        self.Dicionario = {}
         self.Rato = R
         self.Queijo = Q
         self.Map = L
         self.Mod_Map = L
         self.Pile = []
-
 
     def Wall(self,location):
         try:
@@ -68,7 +70,7 @@ class Local_Actions:
     def Left(self):
         info ='left'
         #[0]L [0]C
-        if int(self.Rato[1]) != len(self.Map)-1: 
+        if int(self.Rato[1]) <= len(self.Map)-1 and int(self.Rato[1]) > 0: 
             if self.Wall(info) != True:            
                 [print(l) for l in self.Map]
                 print('\n')
@@ -100,15 +102,43 @@ class Local_Actions:
         else:
             print("Can't to moove to Right")
 
-    def main(self):
-        pass
-if __name__ == "__main__":
-    R = [1,0]
-    Q = [5,5]
-    L = [[False,True,True],['Rato',True,True],[False,False,'Q']]
-    print(len(L))
+    def Cheese_End(self):
+        return self.Rato == self.Queijo
 
-    print(Local_Actions(R,Q,L).Right())
+    def main(self):
+        info = self.Cheese_End()
+        cont =0
+        while True:
+            info = self.Cheese_End()
+            print('passo =',cont,'\n',self.Rato,'\n',self.Queijo)
+            cont+=1
+            if info == True:
+                print('achou')
+                break
+            else:
+                randomic=Info()
+                time.sleep(2)
+                if randomic == 'top':
+                    print('TOP')
+                    self.Top()
+                elif randomic == 'bootom':
+                    print('Bottom')
+                    self.Bottom()
+                elif randomic == 'left':
+                    print('Left')
+                    self.Left()
+                elif randomic == 'right':
+                    print('Right')
+                    self.Right()
+        print(self.Pile)
+
+if __name__ == "__main__":
+    R = [0,0]
+    Q = [2,2]
+    L = [['Rato',True,True],[False,True,True],[False,False,'Q']]
+    print(Local_Actions(R,Q,L).main())
+    #print(Info())
+    '''print(Local_Actions(R,Q,L).Right())
     print('\n')
     print(Local_Actions(R,Q,L).Right())
     print('\n')
@@ -117,7 +147,7 @@ if __name__ == "__main__":
     print(Local_Actions(R,Q,L).Left())
     print('\n')
     print(Local_Actions(R,Q,L).Left())
-    '''print('\n')
+    print('\n')
     print(Local_Actions(R,Q,L).Right())
     print('\n')
     print(Local_Actions(R,Q,L).Right())
