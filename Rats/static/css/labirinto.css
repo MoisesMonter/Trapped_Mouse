@@ -62,7 +62,11 @@ div.select_1 input{
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 }
-.select_lab{margin-top: 15%;}
+.select_lab{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+}
 
 #labirinto_1 div label{
     cursor: pointer;
@@ -72,9 +76,7 @@ div.select_1 input{
     padding: 0%;
     background-color: rgb(7, 4, 26);
 }
-#labirinto_1 div input[type="radio"]{   
-   
-}
+
 #labirinto_1 div input[type="radio"]:checked{
     cursor: pointer;
     color: aqua;
@@ -88,4 +90,56 @@ div.select_1 input{
     background-color:rgb(160, 4, 250);
     font-size: 15px;
     color: rgb(30, 7, 32);
+}
+
+#two_info_lab4{
+
+    display: flex;
+    flex-direction: row;
+    margin-left: 30%;
+
+}
+#Pilha{
+
+    padding: 0%;
+    margin: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 200px; 
+    text-align: center;
+    height: 50px;
+}
+#Pilha table{
+    background-color: rgb(104, 41, 129);
+    font-size: 22px;
+    color: black;
+    margin-left: 5%;
+    width: 200px;    
+    text-align: center;
+    height: 50px;
+    border: solid 2px rgb(255, 136, 0);
+    border-radius: 5px;
+}
+#Pilha td{
+
+    background-color: rgb(104, 41, 129);
+    border: 2px solid rgb(117, 65, 5) ;
+}
+
+#tabela:hover{
+    cursor:pointer;
+}
+#tabela th{
+    background-color: rgb(73, 29, 90);
+    box-shadow: 10px 5px 50px black;
+
+}
+.info a{
+    color: black;
+}
+.info  :hover:not(a){
+    background-color: bisque;
+    color: rgb(6, 110, 201);
+    outline: dotted rgb(255, 2, 234);
+    
 }

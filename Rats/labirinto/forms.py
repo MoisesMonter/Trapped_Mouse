@@ -48,3 +48,5 @@ class Matriz2(forms.Form):
         widget=forms.RadioSelect,
         choices=CHOICES, 
     )
+
+

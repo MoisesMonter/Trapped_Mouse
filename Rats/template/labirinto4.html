@@ -16,7 +16,8 @@
     </div>
 
     <div class="select_lab">
-        <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
+        <div id="two_info_lab4">
+        <form action="{% url 'labirinto4' %}" method="post" autocomplete="off">{%csrf_token%}
             <div class="select_1">
                 {%if Matriz.0.0 == True%}
                     <img class='box2'src="{% static 'img/parede/1.bmp' %}">
@@ -433,14 +434,16 @@
                 {%if Matriz.4.0 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.0 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.0 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>  
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -448,14 +451,16 @@
             {%if Matriz.4.1 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.1 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.1 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>         
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -463,14 +468,16 @@
             {%if Matriz.4.2 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.2 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.2 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}"> 
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>           
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -478,14 +485,16 @@
             {%if Matriz.4.3 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.3 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.3 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>     
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -493,14 +502,16 @@
             {%if Matriz.4.4 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.4 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.4 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>           
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -508,14 +519,16 @@
             {%if Matriz.4.5 == True%}
                 <img class='box2'src="{% static 'img/parede/1.bmp' %}">
             {% elif Matriz.4.5 == 'Rato'%}
-                <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">  
+                <div class="imagem_sobreposta">
+                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/Rat.gif' %}">
+                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
+                </div>
             {% elif Matriz.4.5 == 'Queijo'%}
             <div class="imagem_sobreposta">
                     <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
                     <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
                 </div>  
-                <img           
+                <img>           
             {%else%}
             <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
             {%endif%}
@@ -625,19 +638,70 @@
             </div>
             <div class="choise_submit">
                 <div class="input">
-                    <input type="submit"  value="Acept"></label><br></li>
+                    
+                    {% if Interaction == False %}
+                    <div id="input_end">
+                        <input type="submit" name="Start" value="Start"></label><br></li>
+                    </div>
+                    <div id="input_end">
+                        <input type="submit" name="Start" value="Back"></label><br></li>
+                    </div>
+                        
+                    {% else %}
+                        <input type="submit" name="Start" value="Next"></label><br></li>
+                    {% endif %}
                 </div>   
 
-            </form>
-            
-                <div class="input">
-                    <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
-                    <input type="submit" name="back" value="Back"></label><br></li>
-                    </form>
-                </div>    
-        
+        </form>
+           
+    
             </div>
-            
+            {% if SizeofPiles == 1 %}
+                <div id="Pilha">
+                    <table>
+                        <tr id="tabela">
+                            <th><p>Pilha</p></th>
+                            <th><p>Posição</p></th>
+                        </tr>
+                        {% load multifor %}
+                        {%for Dir in Pile; Posi in Posi_Pile %}
+                            <tr id="tabela" class="info">
+                                <td><a>{{Dir}}</a></td>
+                                <td><a>{{Posi}}</a></td>
+                            </tr>
+                            {%endfor%}
+             
+
+
+
+                </table>
+
+                </ul>
+            </div>  
+            {%else%} 
+            <div id="Pilha">
+                <table>
+                    <tr id="tabela">
+                        <th><p>Pilha</p></th>
+                        <th><p>Posição</p></th>
+                    </tr>
+                    {% load multifor %}
+                    {% for Dir in Pile; Posi in Posi_Pile %}
+                        <tr id="tabela" class="info">
+                            <td><a>{{Dir}}</a></td>
+                            <td><a>{{Posi}}</a></td>
+                        </tr>
+                        {%endfor%}
+         
+
+
+
+            </table>
+
+                </ul>
+            </div>  
+            {%endif%}
+    <div>
 
     </div>
 </div>

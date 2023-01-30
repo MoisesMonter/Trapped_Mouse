@@ -1,7 +1,11 @@
 from random import randint
 from time import sleep
 from os import system,name
-pilha =[]
+
+
+Repeticoes = 100
+
+
 
 def Info():
     info = ['top','bottom','left','right']
@@ -18,25 +22,28 @@ class Main_pile:
     def Desempilhar_Dict(self):
         info = []
 
-        for desempilhar in range(int(len(self.Save))-1,-1,-1):
-            print(desempilhar)
+        for desempilhar in range(int(len(self.Save))-1,-1,-1): #desempilhando lista de opções
+            #print(desempilhar)
             if len(info) == 0:
                 info =  self.Save[desempilhar]
                 self.Save.popitem()
             elif len(info) >= len(self.Save[desempilhar]):
                 info =  self.Save[desempilhar]
                 self.Save.popitem()
-
+        try:
+            info = [info[dp] for dp in range(int(len(info))-1,-1,-1)] #pilha do caminho
+        except:
+            pass
         return info
                                                                             
     def main(self,Rato,Queijo,Mapa):
         print(Rato,'quist')
-        for loop in range(4):
+        for loop in range(Repeticoes):
             self.Save[int(len(self.Save))] = Local_Actions([Rato[info] for info in range(2)],[Queijo[info] for info in range(2)],[[Mapa[x][y] for y in range(len(Mapa[x]))]for x in range(len(Mapa))]).run()
-        print([print(x) for x in self.Save.items()])
+        #print([print(x) for x in self.Save.items()])
         Pile = self.Desempilhar_Dict()    
         print(Pile)
-
+        return Pile
 
 class Local_Actions:
     def __init__(self,R,Q,L):
@@ -53,32 +60,33 @@ class Local_Actions:
             self.Dicionario[int(len(self.Dicionario))] = [wind_rose,None]
 
     def Cheese_End(self):
-       
-        return self.__Rato == self.__Queijo
+        convert1  = [int(x) for x in self.__Rato] 
+        convert2  = [int(x) for x in self.__Queijo] 
+        return convert1 == convert2
 
     def Wall(self,direction):
         try:
             if direction == 'top':
-                if(self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == True or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Q'):
+                if(self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == True or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Queijo'):
                     return True
         except:
             pass
         try:
             if direction == 'bottom':
-                if (self.__Map[int(self.__Rato[0])+1][int(self.__Rato[1])] == True or self.__Map[int(self.__Rato[0])+1][int(self.__Rato[1])] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Q') :
+                if (self.__Map[int(self.__Rato[0])+1][int(self.__Rato[1])] == True or self.__Map[int(self.__Rato[0])+1][int(self.__Rato[1])] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Queijo') :
                     return True
         except:
             pass 
         try:
             if direction == 'left':
-                if (self.__Map[int(self.__Rato[0])][int(self.__Rato[1])-1] == True  or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])-1] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Q'):
+                if (self.__Map[int(self.__Rato[0])][int(self.__Rato[1])-1] == True  or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])-1] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Queijo'):
 
                     return True
         except:
             pass 
         try:
             if direction == 'right':
-                if (self.__Map[int(self.__Rato[0])][int(self.__Rato[1])+1] == True or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])+1] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Q'):
+                if (self.__Map[int(self.__Rato[0])][int(self.__Rato[1])+1] == True or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])+1] == '.' or self.__Map[int(self.__Rato[0])][int(self.__Rato[1])] == 'Queijo'):
                     return True
         except:
             pass
@@ -98,17 +106,17 @@ class Local_Actions:
                     self.__Rato[0]= int(self.__Rato[0]) -1   
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]= 'Rato'
                     self.Dicionario[len(self.Dicionario)] = [[direcitons for direcitons in self.info],'top']
-                elif direction == 'bottom'   and int(self.__Rato[0]) < len(self.__Map)-1:  #linha \/ and self.__Map[self.__Rato[0+1]][self.__Rato[1]] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Q'
+                elif direction == 'bottom'   and int(self.__Rato[0]) < len(self.__Map)-1:  #linha \/ and self.__Map[self.__Rato[0+1]][self.__Rato[1]] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Queijo'
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]='.'
                     self.__Rato[0]= int(self.__Rato[0]) +1      
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]= 'Rato'
                     self.Dicionario[len(self.Dicionario)] = [[direcitons for direcitons in self.info],'bottom']
-                elif direction == 'left'   and int(self.__Rato[1])   >0:  #coluna >   and self.__Map[self.__Rato[0]][self.__Rato[1]-1] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Q'
+                elif direction == 'left'   and int(self.__Rato[1])   >0:  #coluna >   and self.__Map[self.__Rato[0]][self.__Rato[1]-1] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Queijo'
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]='.'
                     self.__Rato[1]= int(self.__Rato[1]) -1
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]= 'Rato'
                     self.Dicionario[len(self.Dicionario)] = [[direcitons for direcitons in self.info],'left']
-                elif direction == 'right'  and int(self.__Rato[1])   < len(self.__Map)-1:  #coluna <   and self.__Map[self.__Rato[0]][self.__Rato[1]+1] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Q'
+                elif direction == 'right'  and int(self.__Rato[1])   < len(self.__Map)-1:  #coluna <   and self.__Map[self.__Rato[0]][self.__Rato[1]+1] == False or self.__Map[int(self.__Rato[0])-1][int(self.__Rato[1])] == 'Queijo'
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]='.'
                     self.__Rato[1]= int(self.__Rato[1]) +1
                     self.__Map[int(self.__Rato[0])][int(self.__Rato[1])]= 'Rato'
@@ -194,12 +202,15 @@ class Local_Actions:
 
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     R = [0,0]
-    Q = [0,2]
-    L = [['Rato',True,'Q'],
-         [False,False,False],
-         [False,False,False]]
+    Q = [2,5]
+    L = [['Rato' ,True ,False ,False ,False ,False],
+         [False ,True  ,False ,True  ,False ,True],
+         [False ,True  ,False ,True  ,False ,'Queijo'],
+         [False ,True  ,False ,True  ,False ,True],
+         [False ,True  ,False ,False ,False ,False],
+         [False ,False ,False ,True  ,False ,False]]
     Main_pile().main(R,Q,L)
-
+'''
 

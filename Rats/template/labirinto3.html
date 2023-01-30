@@ -388,16 +388,22 @@
             </div>
             <div class="choise_submit">
                 <div class="input">
-                    <input type="submit"  value="Acept"></label><br></li>
+
+                    <div id="input_end">
+                        <input type="submit"  value="Acept"></label><br></li>
+                    </form>
+                    </div>
+                    
+                    <div id="input_end">
+                        <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
+                            <input type="submit" name="back" value="Back"></label><br></li>
+                            </form>
+                    </div>
                 </div>   
 
-            </form>
+
             
-                <div class="input">
-                    <form action="{% url 'labirinto3' %}" method="post" autocomplete="off">{%csrf_token%}
-                    <input type="submit" name="back" value="Back"></label><br></li>
-                    </form>
-                </div>    
+
         
             </div>
             
