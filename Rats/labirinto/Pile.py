@@ -30,10 +30,10 @@ class Main_pile:
             elif len(info) >= len(self.Save[desempilhar]):
                 info =  self.Save[desempilhar]
                 self.Save.popitem()
-        try:
+        '''try:
             info = [info[dp] for dp in range(int(len(info))-1,-1,-1)] #pilha do caminho
         except:
-            pass
+            pass'''
         return info
                                                                             
     def main(self,Rato,Queijo,Mapa):

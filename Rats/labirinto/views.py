@@ -9,11 +9,14 @@ class create_lab:
     labirinto_criado=[]
     labirinto_Rato=[]
     labirinto_completo=[]
+    Start_Map=[]
+    Start_Rat= []
     Rato_Position= []
     Queijo_Position=[]
     Start = False
     Compile = False
     Pile = []
+    direction = ''
     def __init__(self,info):
         global labirinto_criado
         global labirinto_Rato
@@ -23,7 +26,9 @@ class create_lab:
         global Start
         global Compile
         global Pile
-
+        global Start_Map
+        global Start_Rat
+        global direction
 
 
 def corrindo_erro():
@@ -34,6 +39,8 @@ def corrindo_erro():
 
 def labirinto(request):
     create_lab.Compile = False
+    create_lab.Start_Map = []
+    create_lab.Start_Rat = []
     if request.method == 'GET':
         return render(request,"labirinto.html")
     if request.method == 'POST':
@@ -53,6 +60,8 @@ def labirinto(request):
 
 def labirinto2(request):
     create_lab.Compile = False
+    create_lab.Start_Map = []
+    create_lab.Start_Rat = []
     if int(len(create_lab.labirinto_criado)) < int(1):
         return redirect('labirinto')
     info= create_lab.labirinto_criado
@@ -77,6 +86,8 @@ def labirinto2(request):
 
 def labirinto3(request):
     create_lab.Compile = False
+    create_lab.Start_Map = []
+    create_lab.Start_Rat = []
     if int(len(create_lab.labirinto_criado)) < int(1):
         return redirect('labirinto')
     info= create_lab.labirinto_criado
@@ -105,27 +116,32 @@ def labirinto3(request):
 
 
 def labirinto4(request):
+    if len(create_lab.Start_Map) ==0:
+        create_lab.Start_Map = [[y for y in x] for x in create_lab.labirinto_completo]
     if int(len(create_lab.labirinto_criado)) < int(1):
         return redirect('labirinto')
     corrindo_erro()
     print('chegooo')
-    info= create_lab.labirinto_completo
+    info= create_lab.Start_Map
     Interaction = create_lab.Start
     if request.method == 'GET':
         if create_lab.Compile == True:
             list_Pile = [int(z) for z in range(int(len(create_lab.Pile))-1,-1,-1)]
             broke_Piles = len(list_Pile)//7+(int(len(list_Pile)%7)!=0)
-            return render(request,"labirinto4.html",{'Matriz':info,'Interaction':Interaction,'Pile':create_lab.Pile,'Posi_Pile':list_Pile})
+            mylist = zip(create_lab.Pile, list_Pile)
+            return render(request,"labirinto4.html",{'Matriz':info,'Interaction':Interaction,'Pile':mylist,'direction':create_lab.direction})
         return render(request,"labirinto4.html",{'Matriz':info,'Interaction':Interaction})
     if request.method == 'POST':
         if request.POST.get('Start') == 'Start':
+            create_lab.Start_Map = [[y for y in x] for x in create_lab.labirinto_completo]
+            create_lab.Start_Rat = [x for x in create_lab.Rato_Position]
             if create_lab.Compile == False:
                 create_lab.Compile = True
                 print()
                 Rato =create_lab.Rato_Position
                 Queijo =create_lab.Queijo_Position
                 print(Rato,Queijo,info)
-                create_lab.Pile = Main_pile().main(Rato,Queijo,create_lab.labirinto_completo)
+                create_lab.Pile = Main_pile().main(Rato,Queijo,create_lab.Start_Map)
             create_lab.Start= True
         elif request.POST.get('Start') == 'Back':
             return redirect('labirinto3')
@@ -133,8 +149,29 @@ def labirinto4(request):
             if len(create_lab.Pile) <=0:
                 create_lab.Compile = False
                 create_lab.Start= False
+                create_lab.Start_Rat = [x for x in create_lab.Rato_Position]
+                create_lab.Start_Map = [[y for y in x] for x in create_lab.labirinto_completo]
                 return redirect('labirinto4')
             else:
-                create_lab.Pile.pop()
-            
+                print(create_lab.Pile[0])
+                if create_lab.Pile[0] == 'top':
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = False
+                    create_lab.Start_Rat[0]=int(create_lab.Start_Rat[0])-1
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = 'Rato'
+                if create_lab.Pile[0] == 'bottom':
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = False
+                    create_lab.Start_Rat[0]=int(create_lab.Start_Rat[0])+1
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = 'Rato'
+                if create_lab.Pile[0] == 'left':
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = False
+                    create_lab.Start_Rat[1]=int(create_lab.Start_Rat[1])-1
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = 'Rato'
+                if create_lab.Pile[0] == 'right':
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = False
+                    create_lab.Start_Rat[1]=int(create_lab.Start_Rat[1])+1
+                    create_lab.Start_Map[int(create_lab.Start_Rat[0])][int(create_lab.Start_Rat[1])] = 'Rato'
+                create_lab.direction = create_lab.Pile[0]
+                create_lab.Pile.pop(0)
+        [print(l) for l in create_lab.Start_Map]
+        print(create_lab.Start_Rat)
         return redirect('labirinto4')
