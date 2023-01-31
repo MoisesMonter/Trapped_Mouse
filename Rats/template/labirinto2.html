@@ -3,10 +3,9 @@
 
 
 {%block info %}
-
-<div id="labirinto_1">
+<article>
     <div class="titulo_info">
-            <h2>FORME SEU LABIRINTO</h2>
+        <h2>FORME SEU LABIRINTO</h2>
             
     </div>
     <div class="titulo_info">   
@@ -18,6 +17,8 @@
         <img class='img'src="{% static 'img/monster/Rat.gif' %}">
         
     </div>
+    <div id="labirinto_1">
+
     <div class="select_lab">
         <form action="{% url 'labirinto2' %}" method="post" autocomplete="off">{%csrf_token%}
             <div class="select_1">
@@ -80,6 +81,17 @@
                 {%else%}
                 {{Matriz2.object_lab.5}}
                 {%endif%}
+
+                {%if Matriz.0.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.0.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.0.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                    {%else%}
+                    {{Matriz2.object_lab.6}}
+                {%endif%}
+
             </div>
             <div class="select_1">
                 {%if Matriz.1.0 == True%}
@@ -89,7 +101,7 @@
                 {% elif Matriz.1.0 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.6}}
+                {{Matriz2.object_lab.7}}
                 {%endif%}
 
                 {%if Matriz.1.1 == True%}
@@ -99,7 +111,7 @@
                 {% elif Matriz.1.1 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.7}}
+                {{Matriz2.object_lab.8}}
                 {%endif%}
 
                 {%if Matriz.1.2 == True%}
@@ -109,7 +121,7 @@
                 {% elif Matriz.1.2 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.8}}
+                {{Matriz2.object_lab.9}}
                 {%endif%}
 
                 {%if Matriz.1.3 == True%}
@@ -119,7 +131,7 @@
                 {% elif Matriz.1.3 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.9}}
+                {{Matriz2.object_lab.10}}
                 {%endif%}
 
                 {%if Matriz.1.4 == True%}
@@ -129,7 +141,7 @@
                 {% elif Matriz.1.4 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.10}}
+                {{Matriz2.object_lab.11}}
                 {%endif%}
 
                 {%if Matriz.1.5 == True%}
@@ -139,8 +151,19 @@
                 {% elif Matriz.1.5 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.11}}
+                {{Matriz2.object_lab.12}}
                 {%endif%}
+
+                {%if Matriz.1.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.1.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.1.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.13}}
+                {%endif%}
+
             </div>
             <div class="select_1">
                 {%if Matriz.2.0 == True%}
@@ -150,7 +173,7 @@
                 {% elif Matriz.2.0 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.12}}
+                {{Matriz2.object_lab.14}}
                 {%endif%}
 
                 {%if Matriz.2.1 == True%}
@@ -160,7 +183,7 @@
                 {% elif Matriz.2.1 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.13}}
+                {{Matriz2.object_lab.15}}
                 {%endif%}
 
                 {%if Matriz.2.2 == True%}
@@ -170,7 +193,7 @@
                 {% elif Matriz.2.2 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.14}}
+                {{Matriz2.object_lab.16}}
                 {%endif%}
 
                 {%if Matriz.2.3 == True%}
@@ -180,7 +203,7 @@
                 {% elif Matriz.2.3 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.15}}
+                {{Matriz2.object_lab.17}}
                 {%endif%}
 
                 {%if Matriz.2.4 == True%}
@@ -190,7 +213,7 @@
                 {% elif Matriz.2.4 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.16}}
+                {{Matriz2.object_lab.18}}
                 {%endif%}
 
                 {%if Matriz.2.5 == True%}
@@ -200,8 +223,20 @@
                 {% elif Matriz.2.5 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.17}}
+                {{Matriz2.object_lab.19}}
                 {%endif%}
+
+
+                {%if Matriz.2.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.2.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.2.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.20}}
+                {%endif%}
+
             </div>
             <div class="select_1">
                 {%if Matriz.3.0 == True%}
@@ -211,7 +246,7 @@
                 {% elif Matriz.3.0 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.18}}
+                {{Matriz2.object_lab.21}}
                 {%endif%}
 
                 {%if Matriz.3.1 == True%}
@@ -221,7 +256,7 @@
                 {% elif Matriz.3.1 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.19}}
+                {{Matriz2.object_lab.22}}
                 {%endif%}
 
                 {%if Matriz.3.2 == True%}
@@ -231,7 +266,7 @@
                 {% elif Matriz.3.2 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.20}}
+                {{Matriz2.object_lab.23}}
                 {%endif%}
 
                 {%if Matriz.3.3 == True%}
@@ -241,7 +276,7 @@
                 {% elif Matriz.3.3 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.21}}
+                {{Matriz2.object_lab.24}}
                 {%endif%}
 
                 {%if Matriz.3.4 == True%}
@@ -251,7 +286,7 @@
                 {% elif Matriz.3.4 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.22}}
+                {{Matriz2.object_lab.25}}
                 {%endif%}
 
                 {%if Matriz.3.5 == True%}
@@ -261,8 +296,19 @@
                 {% elif Matriz.3.5 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.23}}
+                {{Matriz2.object_lab.26}}
                 {%endif%}
+
+                {%if Matriz.3.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.3.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.3.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.27}}
+                {%endif%}
+
             </div>
             <div class="select_1">
                 {%if Matriz.4.0 == True%}
@@ -272,7 +318,7 @@
             {% elif Matriz.4.0 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.24}}
+            {{Matriz2.object_lab.28}}
             {%endif%}
 
             {%if Matriz.4.1 == True%}
@@ -282,7 +328,7 @@
             {% elif Matriz.4.1 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.25}}
+            {{Matriz2.object_lab.29}}
             {%endif%}
 
             {%if Matriz.4.2 == True%}
@@ -292,7 +338,7 @@
             {% elif Matriz.4.2 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.26}}
+            {{Matriz2.object_lab.30}}
             {%endif%}
 
             {%if Matriz.4.3 == True%}
@@ -302,7 +348,7 @@
             {% elif Matriz.4.3 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.27}}
+            {{Matriz2.object_lab.31}}
             {%endif%}
 
             {%if Matriz.4.4 == True%}
@@ -312,7 +358,7 @@
             {% elif Matriz.4.4 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.28}}
+            {{Matriz2.object_lab.32}}
             {%endif%}
 
             {%if Matriz.4.5 == True%}
@@ -322,8 +368,19 @@
             {% elif Matriz.4.5 == 'Queijo'%}
                 <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
             {%else%}
-            {{Matriz2.object_lab.29}}
+            {{Matriz2.object_lab.33}}
             {%endif%}
+
+            {%if Matriz.4.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.4.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.4.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+            {{Matriz2.object_lab.34}}
+            {%endif%}
+
             </div>
             <div class="select_1">
                 {%if Matriz.5.0 == True%}
@@ -333,7 +390,7 @@
                 {% elif Matriz.5.0 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.30}}
+                {{Matriz2.object_lab.35}}
                 {%endif%}
 
                 {%if Matriz.5.1 == True%}
@@ -343,7 +400,7 @@
                 {% elif Matriz.5.1 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.31}}
+                {{Matriz2.object_lab.36}}
                 {%endif%}
 
                 {%if Matriz.5.2 == True%}
@@ -353,7 +410,7 @@
                 {% elif Matriz.5.2 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.32}}
+                {{Matriz2.object_lab.37}}
                 {%endif%}
 
                 {%if Matriz.5.3 == True%}
@@ -363,7 +420,7 @@
                 {% elif Matriz.5.3 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.33}}
+                {{Matriz2.object_lab.38}}
                 {%endif%}
 
                 {%if Matriz.5.4 == True%}
@@ -373,7 +430,7 @@
                 {% elif Matriz.5.4 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.34}}
+                {{Matriz2.object_lab.39}}
                 {%endif%}
 
                 {%if Matriz.5.5 == True%}
@@ -383,27 +440,115 @@
                 {% elif Matriz.5.5 == 'Queijo'%}
                     <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
                 {%else%}
-                {{Matriz2.object_lab.35}}
+                {{Matriz2.object_lab.40}}
                 {%endif%}
+
+                {%if Matriz.5.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.5.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.5.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.41}}
+                {%endif%}
+
             </div>
+
+
+            <div class="select_1">
+                {%if Matriz.6.0 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.0 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.0 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.42}}
+                {%endif%}
+
+                {%if Matriz.6.1 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.1 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.1 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.43}}
+                {%endif%}
+
+                {%if Matriz.6.2 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.2 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.2 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.44}}
+                {%endif%}
+
+                {%if Matriz.6.3 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.3 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.3 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.45}}
+                {%endif%}
+
+                {%if Matriz.6.4 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.4 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.4 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.46}}
+                {%endif%}
+
+                {%if Matriz.6.5 == True%}
+                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                {% elif Matriz.6.5 == 'Rato'%}
+                    <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                {% elif Matriz.6.5 == 'Queijo'%}
+                    <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.47}}
+                {%endif%}
+
+                {%if Matriz.6.6 == True%}
+                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
+                    {% elif Matriz.6.6 == 'Rato'%}
+                        <img class='box1'src="{% static 'img/monster/Rat.gif' %}">  
+                    {% elif Matriz.6.6 == 'Queijo'%}
+                        <img class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">               
+                {%else%}
+                {{Matriz2.object_lab.48}}
+                {%endif%}
+
+            </div>
+
             <div class="choise_submit">
                 <div class="input">
 
                     <div id="input_end">
                         <input type="submit"  value="Acept"></label><br></li>
                     </form>
-                </div>   
-                <div id="input_end">
-                    <form action="{% url 'labirinto2' %}" method="post" autocomplete="off">{%csrf_token%}
-                        <input type="submit" name="back" value="Back"></label><br></li>
-                        </form>
+                    </div>
+                    <div id="input_end">
+                        <form action="{% url 'labirinto2' %}" method="post" autocomplete="off">{%csrf_token%}
+                            <input type="submit" name="back" value="Back"></label><br></li>
+                            </form>
+                    </div>
                 </div>
-            </div>
-
-            
-        </form>
+    
+                
+            </form>
+        </div>
     </div>
-</div>
+</article>
+
 
 
 

@@ -45,12 +45,13 @@ def labirinto(request):
         return render(request,"labirinto.html")
     if request.method == 'POST':
         lab= [
-            [request.POST.get('l0c0'),request.POST.get('l0c1'),request.POST.get('l0c2'),request.POST.get('l0c3'),request.POST.get('l0c4'),request.POST.get('l0c5')],
-            [request.POST.get('l1c0'),request.POST.get('l1c1'),request.POST.get('l1c2'),request.POST.get('l1c3'),request.POST.get('l1c4'),request.POST.get('l1c5')],
-            [request.POST.get('l2c0'),request.POST.get('l2c1'),request.POST.get('l2c2'),request.POST.get('l2c3'),request.POST.get('l2c4'),request.POST.get('l2c5')],
-            [request.POST.get('l3c0'),request.POST.get('l3c1'),request.POST.get('l3c2'),request.POST.get('l3c3'),request.POST.get('l3c4'),request.POST.get('l3c5')],
-            [request.POST.get('l4c0'),request.POST.get('l4c1'),request.POST.get('l4c2'),request.POST.get('l4c3'),request.POST.get('l4c4'),request.POST.get('l4c5')],
-            [request.POST.get('l5c0'),request.POST.get('l5c1'),request.POST.get('l5c2'),request.POST.get('l5c3'),request.POST.get('l5c4'),request.POST.get('l5c5')]]
+            [request.POST.get('l0c0'),request.POST.get('l0c1'),request.POST.get('l0c2'),request.POST.get('l0c3'),request.POST.get('l0c4'),request.POST.get('l0c5'),request.POST.get('l0c6')],
+            [request.POST.get('l1c0'),request.POST.get('l1c1'),request.POST.get('l1c2'),request.POST.get('l1c3'),request.POST.get('l1c4'),request.POST.get('l1c5'),request.POST.get('l1c6')],
+            [request.POST.get('l2c0'),request.POST.get('l2c1'),request.POST.get('l2c2'),request.POST.get('l2c3'),request.POST.get('l2c4'),request.POST.get('l2c5'),request.POST.get('l2c6')],
+            [request.POST.get('l3c0'),request.POST.get('l3c1'),request.POST.get('l3c2'),request.POST.get('l3c3'),request.POST.get('l3c4'),request.POST.get('l3c5'),request.POST.get('l3c6')],
+            [request.POST.get('l4c0'),request.POST.get('l4c1'),request.POST.get('l4c2'),request.POST.get('l4c3'),request.POST.get('l4c4'),request.POST.get('l4c5'),request.POST.get('l4c6')],
+            [request.POST.get('l5c0'),request.POST.get('l5c1'),request.POST.get('l5c2'),request.POST.get('l5c3'),request.POST.get('l5c4'),request.POST.get('l5c5'),request.POST.get('l5c6')],
+            [request.POST.get('l6c0'),request.POST.get('l6c1'),request.POST.get('l6c2'),request.POST.get('l6c3'),request.POST.get('l6c4'),request.POST.get('l6c5'),request.POST.get('l6c6')]]
         create_lab.labirinto_criado = [[c == 'on' for c in l] for l in lab]
         print(create_lab.labirinto_criado)
         x = request.POST.get('l3c0')
@@ -73,11 +74,10 @@ def labirinto2(request):
         if request.POST.get('back') == None:
             if x.is_valid:
                 create_lab.Rato_Position = request.POST.get('object_lab').split(' ')
-                print(create_lab.Rato_Position)
+
                 create_lab.labirinto_Rato = [[x for x in l]for l in create_lab.labirinto_criado]
                 create_lab.labirinto_Rato[int(create_lab.Rato_Position[0])][int(create_lab.Rato_Position[1])] = 'Rato'
-                print(create_lab.Rato_Position)
-                print( create_lab.labirinto_Rato)
+
                 return redirect('labirinto3')
         else:
             return redirect('labirinto')
@@ -118,16 +118,25 @@ def labirinto3(request):
 def labirinto4(request):
     if len(create_lab.Start_Map) ==0:
         create_lab.Start_Map = [[y for y in x] for x in create_lab.labirinto_completo]
+        if len(create_lab.Start_Map) == 0:
+            return redirect('labirinto')
     if int(len(create_lab.labirinto_criado)) < int(1):
         return redirect('labirinto')
     corrindo_erro()
-    print('chegooo')
     info= create_lab.Start_Map
     Interaction = create_lab.Start
     if request.method == 'GET':
         if create_lab.Compile == True:
-            list_Pile = [int(z) for z in range(int(len(create_lab.Pile))-1,-1,-1)]
-            broke_Piles = len(list_Pile)//7+(int(len(list_Pile)%7)!=0)
+            list_Pile=[]
+            try:
+                if create_lab.Pile[0] == 'Final Inconclusivo':
+                    list_Pile.append('Not Away :C')
+                else:
+                    list_Pile = [int(z) for z in range(int(len(create_lab.Pile))-1,-1,-1)]
+                    broke_Piles = len(list_Pile)//7+(int(len(list_Pile)%7)!=0)
+            except:
+                list_Pile = [int(z) for z in range(int(len(create_lab.Pile))-1,-1,-1)]
+                broke_Piles = len(list_Pile)//7+(int(len(list_Pile)%7)!=0)
             mylist = zip(create_lab.Pile, list_Pile)
             return render(request,"labirinto4.html",{'Matriz':info,'Interaction':Interaction,'Pile':mylist,'direction':create_lab.direction})
         return render(request,"labirinto4.html",{'Matriz':info,'Interaction':Interaction})
@@ -137,10 +146,9 @@ def labirinto4(request):
             create_lab.Start_Rat = [x for x in create_lab.Rato_Position]
             if create_lab.Compile == False:
                 create_lab.Compile = True
-                print()
+
                 Rato =create_lab.Rato_Position
                 Queijo =create_lab.Queijo_Position
-                print(Rato,Queijo,info)
                 create_lab.Pile = Main_pile().main(Rato,Queijo,create_lab.Start_Map)
             create_lab.Start= True
         elif request.POST.get('Start') == 'Back':
