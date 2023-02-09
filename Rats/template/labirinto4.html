@@ -1,1444 +1,157 @@
 {%extends 'corpo.html'%}
 {% load static %}
 
-
 {%block info %}
 <article style=" margin-left: 4%; margin-right: 0%;">
     <div class="titulo_info">
         <h2>SEU LABIRINTO ESTÁ PRONTO</h2>
-        
     </div>
-    <div class="titulo_info">   
-    <h4>JOGAR</h4>
 
-    
+    <div class="titulo_info">
+        <h4>JOGAR</h4>
+
     </div>
+
     <div style="margin-right: 15%;" id="labirinto_1">
         <div class="select_lab">
             <div id="two_info_lab4">
                 <form action="{% url 'labirinto4' %}" method="post" autocomplete="off">{%csrf_token%}
-                <div class="select_1">
-                    {%if Matriz.0.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
 
-                    {%if Matriz.0.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
+                    {% for linha in Matriz%}
+                    <div class="select_1">
 
-                    {%if Matriz.0.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.0.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.0.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.0.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.0.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.0.6 == True %}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.0.6 == 'Rato'%}
+                        {% for coluna in linha%}
+                        {%if coluna == True%}
+                        <img class='box2' src="{% static 'img/parede/1.bmp' %}">
+                        {% elif coluna == 'Rato'%}
                         <div class="imagem_sobreposta">
-                    {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                    {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                    {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                    {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                    {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                    {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                {% elif Matriz.0.6 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                                
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-
-                </div>
-                <div class="select_1">
-                    {%if Matriz.1.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.1.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.1.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.1.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.1.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.1.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.1.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.1.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                {%if Matriz.1.6 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.1.6 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                {% if direction == 'top'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                {% elif direction == 'bottom'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                {% elif direction == 'left'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                {% elif direction == 'right'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                {%else%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                {%endif%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-            {% elif Matriz.1.6 == 'Queijo'%}
-            <div class="imagem_sobreposta">
-                <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-                            
-            {%else%}
-            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            {%endif%}   
-
-                </div>
-                <div class="select_1">
-                    {%if Matriz.2.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.2.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.2.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.2.6 == True %}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.2.6 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                {% if direction == 'top'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                {% elif direction == 'bottom'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                {% elif direction == 'left'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                {% elif direction == 'right'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                {%else%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                {%endif%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-            {% elif Matriz.2.6 == 'Queijo'%}
-            <div class="imagem_sobreposta">
-                <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-                            
-            {%else%}
-            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            {%endif%}
-
-                </div>
-                <div class="select_1">
-                    {%if Matriz.3.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.3.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.3.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.3.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.3.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.3.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.3.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.3.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-                    {%if Matriz.3.6 == True %}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.3.6 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                {% if direction == 'top'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                {% elif direction == 'bottom'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                {% elif direction == 'left'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                {% elif direction == 'right'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                {%else%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                {%endif%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-            {% elif Matriz.3.6 == 'Queijo'%}
-            <div class="imagem_sobreposta">
-                <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-                            
-            {%else%}
-            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            {%endif%}
-                </div>
-                <div class="select_1">
-                    {%if Matriz.4.0 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.0 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>  
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                {%if Matriz.4.1 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.1 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>         
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                {%if Matriz.4.2 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.2 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}"> 
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>           
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                {%if Matriz.4.3 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.3 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>     
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                {%if Matriz.4.4 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.4 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>           
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                {%if Matriz.4.5 == True%}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>
-                {% elif Matriz.4.5 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">    
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    <img>           
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-                {%if Matriz.4.6 == True %}
-                    <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                {% elif Matriz.4.6 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                {% if direction == 'top'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                {% elif direction == 'bottom'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                {% elif direction == 'left'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                {% elif direction == 'right'%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                {%else%}
-                    <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                {%endif%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-            {% elif Matriz.4.6 == 'Queijo'%}
-            <div class="imagem_sobreposta">
-                <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            </div>  
-                            
-            {%else%}
-            <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-            {%endif%}
-                </div>
-                <div class="select_1">
-                    {%if Matriz.5.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.5.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.5.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.5.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.5.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.5.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.5.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-                    {%if Matriz.5.6 == True %}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.5.6 == 'Rato'%}
-                        <div class="imagem_sobreposta">
-                    {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                    {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                    {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                    {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                    {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                    {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                {% elif Matriz.5.6 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                                
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-
-                </div>
-
-                <div class="select_1">
-                    {%if Matriz.6.0 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.0 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.0 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.6.1 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.1 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.1 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.6.2 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.2 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.2 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.6.3 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.3 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.3 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.6.4 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.4 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.4 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-
-                    {%if Matriz.6.5 == True%}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.5 == 'Rato'%}
-                    <div class="imagem_sobreposta">
-                        {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                        {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                        {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                        {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                        {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                        {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                    {% elif Matriz.6.5 == 'Queijo'%}
-                    <div class="imagem_sobreposta">
-                        <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    </div>  
-                                    
-                    {%else%}
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                    {%endif%}
-                    {%if Matriz.6.6 == True %}
-                        <img class='box2'src="{% static 'img/parede/1.bmp' %}">
-                    {% elif Matriz.6.6 == 'Rato'%}
-                        <div class="imagem_sobreposta">
-                    {% if direction == 'top'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatTop.gif' %}">
-                    {% elif direction == 'bottom'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatBottom.gif' %}">
-                    {% elif direction == 'left'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatLeft.gif' %}">
-                    {% elif direction == 'right'%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatRight.gif' %}">
-                    {%else%}
-                        <img style='position: absolute;'class='box1'src="{% static 'img/monster/RatSleep.gif' %}">
-                    {%endif%}
-                        <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                {% elif Matriz.6.6 == 'Queijo'%}
-                <div class="imagem_sobreposta">
-                    <img style='position:absolute;' class='box1'src="{% static 'img/item/Rat_Cheese.gif' %}">
-                    <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                </div>  
-                                
-                {%else%}
-                <img class='box2'src="{% static 'img/corredor/1.bmp' %}">
-                {%endif%}
-
-                
-                </div>
-
-
-                <div class="choise_submit">
-                    <div class="input">
-                        
-                        {% if Interaction == False %}
-                        <div id="input_end">
-                            <input type="submit" name="Start" value="Start"></label><br></li>
+                            {% if direction == 'top'%}
+                            <img style='position: absolute;' class='box1' src="{% static 'img/monster/RatTop.gif' %}">
+                            {% elif direction == 'bottom'%}
+                            <img style='position: absolute;' class='box1'
+                                src="{% static 'img/monster/RatBottom.gif' %}">
+                            {% elif direction == 'left'%}
+                            <img style='position: absolute;' class='box1' src="{% static 'img/monster/RatLeft.gif' %}">
+                            {% elif direction == 'right'%}
+                            <img style='position: absolute;' class='box1' src="{% static 'img/monster/RatRight.gif' %}">
+                            {%else%}
+                            <img style='position: absolute;' class='box1' src="{% static 'img/monster/RatSleep.gif' %}">
+                            {%endif%}
+                            <img class='box2' src="{% static 'img/corredor/1.bmp' %}">
                         </div>
-                        <div id="input_end">
-                            <input type="submit" name="Start" value="Back"></label><br></li>
+                        {% elif coluna == 'Queijo'%}
+                        <div class="imagem_sobreposta">
+                            <img style='position:absolute;' class='box1' src="{% static 'img/item/Rat_Cheese.gif' %}">
+                            <img class='box2' src="{% static 'img/corredor/1.bmp' %}">
                         </div>
-                            
-                        {% else %}
+
+                        {%else%}
+                        <img class='box2' src="{% static 'img/corredor/1.bmp' %}">
+                        {%endif%}
+
+                        {% endfor %}
+
+                    
+                    </div>
+                    {% endfor %}
+
+                    <div class="choise_submit">
+                        <div class="input">
+
+                            {% if Interaction == False %}
+                            <div id="input_end">
+                                <input type="submit" name="Start" value="Start"></label><br></li>
+                            </div>
+                            <div id="input_end">
+                                <input type="submit" name="Start" value="Back"></label><br></li>
+                            </div>
+
+                            {% else %}
                             <input type="submit" name="Start" value="Next"></label><br></li>
-                        {% endif %}
-                    </div>   
+                            {% endif %}
+                        </div>
 
                 </form>
-            
-        
+
+
             </div>
-            
+        </div>
     </div>
 
-    
+
 
 </article>
 
 <div id="labirinto_2">
     {% if SizeofPiles == 1 %}
-        <div id="Pilha">
-            <table>
-                <tr id="tabela">
-                    <th><p>Pilha</p></th>
-                    <th><p>Posição</p></th>
-                </tr>
-                {% for Dir, Posi in Pile %}
-                    {% if Dir.first %}
-                        <tr id="tabela" class="info">
-                            <td style="color:rgb(18, 38, 216);" ><a style="color:rgb(18, 38, 216);">{{Dir}}</a></td>
-                            <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);"> {{Posi}}</a></td>
-                        </tr>   
-                    {% elif Dir.last %}
-                    <tr id="tabela" class="info">
-                        <td style="color:rgb(18, 38, 216);" ><a style="color:rgb(18, 38, 216);">{{Dir}}</a></td>
-                        <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);"> {{Posi}}</a></td>
-                    </tr>   
-                    {% else %}
-                        <tr id="tabela" class="info">
-                            <td><a>{{Dir}}</a></td>
-                            <td><a>{{Posi}}</a></td>
-                        </tr>
-                    {%endif%}
-                {%endfor%}
-            </table>
-        </div>
-    {%else%} 
-        <div id="Pilha">
-            <table>
-                <tr id="tabela" class="topo">
-                    <th><p>Pilha</p></th>
-                    <th><p>Posição</p></th>
-                </tr>
+    <div id="Pilha">
+        <table>
+            <tr id="tabela">
+                <th>
+                    <p>Pilha</p>
+                </th>
+                <th>
+                    <p>Posição</p>
+                </th>
+            </tr>
+            {% for Dir, Posi in Pile %}
+            {% if Dir.first %}
+            <tr id="tabela" class="info">
+                <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);">{{Dir}}</a></td>
+                <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);"> {{Posi}}</a></td>
+            </tr>
+            {% elif Dir.last %}
+            <tr id="tabela" class="info">
+                <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);">{{Dir}}</a></td>
+                <td style="color:rgb(18, 38, 216);"><a style="color:rgb(18, 38, 216);"> {{Posi}}</a></td>
+            </tr>
+            {% else %}
+            <tr id="tabela" class="info">
+                <td><a>{{Dir}}</a></td>
+                <td><a>{{Posi}}</a></td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+        </table>
+    </div>
+    {%else%}
+    <div id="Pilha">
+        <table>
+            <tr id="tabela" class="topo">
+                <th>
+                    <p>Pilha</p>
+                </th>
+                <th>
+                    <p>Posição</p>
+                </th>
+            </tr>
 
             {% for Dir, Posi in Pile %}
-                    {% if forloop.first %}
-                        <tr id="tabela" class="info">
-                            <td style="background-color:rgb(7, 16, 95); border: solid 2px rgb(7, 16, 95);" ><a style="color:rgb(255, 255, 255);">{{Dir}}</a></td>
-                            <td style="background-color:rgb(7, 16, 95); border: solid 2px rgb(7, 16, 95);" ><a style="color:rgb(255, 255, 255);"> {{Posi}}</a></td>
-                        </tr>   
-                    {% elif forloop.last %}
-                    <tr id="tabela" class="info">
-                        <td style="background-color:rgb(57, 76, 248);  border: solid 2px rgb(57, 76, 248);" ><a style="color:rgb(0, 0, 0);">{{Dir}}</a></td>
-                        <td style="background-color:rgb(57, 76, 248); border: solid 2px rgb(57, 76, 248);"><a style="color:rgb(0, 0, 0);"> {{Posi}}</a></td>
-                    </tr>   
-                    {% else %}
-                        <tr id="tabela" class="info">
-                            <td><a>{{Dir}}</a></td>
-                            <td><a>{{Posi}}</a></td>
-                        </tr>
-                    {%endif%}
+            {% if forloop.first %}
+            <tr id="tabela" class="info">
+                <td style="background-color:rgb(7, 16, 95); border: solid 2px rgb(7, 16, 95);"><a
+                        style="color:rgb(255, 255, 255);">{{Dir}}</a></td>
+                <td style="background-color:rgb(7, 16, 95); border: solid 2px rgb(7, 16, 95);"><a
+                        style="color:rgb(255, 255, 255);"> {{Posi}}</a></td>
+            </tr>
+            {% elif forloop.last %}
+            <tr id="tabela" class="info">
+                <td style="background-color:rgb(57, 76, 248);  border: solid 2px rgb(57, 76, 248);"><a
+                        style="color:rgb(0, 0, 0);">{{Dir}}</a></td>
+                <td style="background-color:rgb(57, 76, 248); border: solid 2px rgb(57, 76, 248);"><a
+                        style="color:rgb(0, 0, 0);"> {{Posi}}</a></td>
+            </tr>
+            {% else %}
+            <tr id="tabela" class="info">
+                <td><a>{{Dir}}</a></td>
+                <td><a>{{Posi}}</a></td>
+            </tr>
+            {%endif%}
             {%endfor%}
-            </table>
+        </table>
 
-        </div>  
-        {%endif%}
+    </div>
+    {%endif%}
 </div>
 
 {%endblock%}

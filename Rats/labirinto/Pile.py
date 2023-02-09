@@ -2,10 +2,10 @@ from random import randint
 from time import sleep
 from os import system,name
 
-Repeticoes = 50
-Mostrar_labirinto_Terminal = True
+Repeticoes = 250
+Mostrar_labirinto_Terminal = False
 Mostrar_Dicionario_Terminal = False
-Mostrar_Pilha_Filtrada_Terminal = False
+Mostrar_Pilha_Filtrada_Terminal = True
 Alerta = False
 
 def Info():
